@@ -124,7 +124,6 @@ data "template_file" "container_definition" {
     ulimits                = local.ulimits == "[]" ? "null" : local.ulimits
     user                   = var.user == "" ? "null" : var.user
     volumesFrom            = local.volumesFrom
-    tags                   = {}
     workingDirectory       = var.workingDirectory == "" ? "null" : var.workingDirectory
   }
 }
