@@ -111,7 +111,7 @@ data "template_file" "container_definition" {
     logConfiguration       = local.logConfiguration == "{}" ? "null" : local.logConfiguration
     memory                 = var.memory == 0 ? "null" : var.memory
     memoryReservation      = var.memoryReservation == 0 ? "null" : var.memoryReservation
-    mountPoints            = local.mountPoints == "[]" ? "null" : local.mountPoints
+    mountPoints            = local.mountPoints
     name                   = var.name == "" ? "null" : var.name
     portMappings           = local.portMappings == "[]" ? "null" : local.portMappings
     privileged             = var.privileged ? true : false
@@ -123,7 +123,7 @@ data "template_file" "container_definition" {
     systemControls         = local.systemControls == "[]" ? "null" : local.systemControls
     ulimits                = local.ulimits == "[]" ? "null" : local.ulimits
     user                   = var.user == "" ? "null" : var.user
-    volumesFrom            = local.volumesFrom == "[]" ? "null" : local.volumesFrom
+    volumesFrom            = local.volumesFrom
     workingDirectory       = var.workingDirectory == "" ? "null" : var.workingDirectory
   }
 }
