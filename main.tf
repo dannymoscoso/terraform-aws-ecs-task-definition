@@ -135,6 +135,8 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
   ipc_mode              = var.ipc_mode
   network_mode          = var.network_mode
   pid_mode              = var.pid_mode
+  
+  tags = null
 
   # Fargate requires cpu and memory to be defined at the task level
   cpu    = var.cpu
