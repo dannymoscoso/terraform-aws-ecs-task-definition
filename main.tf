@@ -38,6 +38,7 @@ locals {
   entryPoint            = jsonencode(var.entryPoint)
   environment           = jsonencode(var.environment)
   extraHosts            = jsonencode(var.extraHosts)
+  tags                  = jsonencode(var.tags)
 
   healthCheck = replace(jsonencode(var.healthCheck), local.classes["digit"], "$1")
 
@@ -124,6 +125,7 @@ data "template_file" "container_definition" {
     ulimits                = local.ulimits == "[]" ? "null" : local.ulimits
     user                   = var.user == "" ? "null" : var.user
     volumesFrom            = local.volumesFrom
+    tags                   = local.tags
     workingDirectory       = var.workingDirectory == "" ? "null" : var.workingDirectory
   }
 }
