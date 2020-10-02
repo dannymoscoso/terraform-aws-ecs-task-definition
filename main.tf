@@ -124,6 +124,7 @@ data "template_file" "container_definition" {
     ulimits                = local.ulimits == "[]" ? "null" : local.ulimits
     user                   = var.user == "" ? "null" : var.user
     volumesFrom            = local.volumesFrom
+    tags                   = {}
     workingDirectory       = var.workingDirectory == "" ? "null" : var.workingDirectory
   }
 }
@@ -136,7 +137,7 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
   network_mode          = var.network_mode
   pid_mode              = var.pid_mode
   
-  tags = null
+  tags = {}
 
   # Fargate requires cpu and memory to be defined at the task level
   cpu    = var.cpu
